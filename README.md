@@ -1,5 +1,9 @@
 # frontend
 
+# Description
+We are going to build chat private message, group message and video call using VueJs 
+and Laravel lumen. We are going to build something similar to slack web application.
+
 ## Project setup
 ```
 npm install
