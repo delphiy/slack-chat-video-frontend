@@ -1,4 +1,4 @@
-# frontend
+# Frontend
 
 # Description
 We are going to build chat private message, group message and video call using VueJs 
