@@ -1,0 +1,54 @@
+.sidebar {
+    height: 100%;
+    width: 180px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #4e3a4c;
+}
+
+.sidebar ul {
+    color: white;
+    margin-top: 40px;
+    list-style-type: none;
+}
+
+.sidebar ul li {
+    margin-top: 10px;
+}
+
+.sidebar a{
+    color: white;
+    text-decoration: none
+}
+
+.sidebar a:hover{
+    color: #caa8a8;
+}
+
+.profile-image {
+ width: 35px;
+ height: 35px;
+}
+
+.profile-name {
+    margin-left: 5px;
+}
+
+.main {
+    margin-left: 180px;
+    padding: 10px 50px;
+    height: 600px;
+    overflow: auto;
+}
+
+.message {
+    margin-left: 35px;
+    margin-top: -40px;
+}
+
+.chat-box {
+    margin-left: 180px;
+    padding: 10px 50px;
+}
