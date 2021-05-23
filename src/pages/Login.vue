@@ -4,7 +4,7 @@
       <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign in</h1>
       <div class="social-login">
         <button class="btn facebook-btn social-btn" type="button"><span><i class="fab fa-facebook-f"></i> Sign in with Facebook</span> </button>
-        <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> Sign in with Google+</span> </button>
+        <button class="btn google-btn social-btn" type="button" @click.prevent="loginWithGoogle()"><span><i class="fab fa-google-plus-g"></i> Sign in with Google+</span> </button>
       </div>
       <p style="text-align:center"> OR  </p>
       <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
@@ -48,7 +48,21 @@
 
 <script>
 export default {
-  name: "Login"
+  name: "Login",
+  methods: {
+    async loginWithGoogle() {
+      try {
+        const googleUser = await this.$gAuth.signIn()
+        const response = await this.$apiService.doLoginSocial(googleUser.getAuthResponse().access_token, 'google')
+
+        localStorage.setItem("api_token", response.data.api_token)
+        this.$router.push('/home')
+        console.log(response.data.api_token)
+      } catch (ex) {
+        console.log(ex)
+      }
+    }
+  }
 }
 </script>
 

@@ -32,4 +32,16 @@ const router = new Router(
     }
 )
 
+router.beforeEach((to, from, next) => {
+    if(to.path != '/login') {
+        if(!localStorage.getItem('api_token')) {
+            next('login')
+        } else {
+            next();
+        }
+    } else {
+        next()
+    }
+})
+
 export default router;

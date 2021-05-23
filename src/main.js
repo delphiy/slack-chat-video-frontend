@@ -12,6 +12,19 @@ import 'quill/dist/quill.bubble.css' // for bubble theme
 
 import router from './router/router'
 
+//Google Auth
+import GoogleAuth from './services/GoogleAuthService'
+const googleAuthOptions = {
+  clientId: '911257406250-hha17g058pj45qaiig0h82btrf422fic.apps.googleusercontent.com',
+  scope: 'profile email',
+  prompt: 'select_account'
+}
+
+//ApiService
+import ApiService from './services/ApiService'
+Vue.prototype.$apiService = new ApiService();
+
+Vue.use(GoogleAuth, googleAuthOptions)
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 Vue.use(VueQuillEditor)
