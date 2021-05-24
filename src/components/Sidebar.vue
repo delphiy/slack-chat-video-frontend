@@ -11,19 +11,10 @@
         <span>#Channels</span>
       </div>
       <ul class="mt-0 pt-0">
-        <li>
+        <li v-for="room in rooms" :key="room.id">
           <router-link to="/home">
-            # Meeting
+            # {{room.name }}
           </router-link>
-        </li>
-        <li>
-          <a href="#"># Dev</a>
-        </li>
-        <li>
-          <a href="#"># Dev</a>
-        </li>
-        <li>
-          <a href="#"># Dev</a>
         </li>
       </ul>
     </section>
@@ -34,16 +25,10 @@
       </div>
 
       <ul class="mt-0 pt-0">
-        <li>
+        <li v-for="user in users" :key="user.id">
           <router-link to="/private-message">
-            # Husam
+            # {{ user.name }}
           </router-link>
-        </li>
-        <li>
-          <a href="#"># James</a>
-        </li>
-        <li>
-          <a href="#"># Sara</a>
         </li>
       </ul>
 
@@ -53,7 +38,18 @@
 
 <script>
 export default {
-  name: "Sidebar"
+  name: "Sidebar",
+  data() {
+    return {
+      rooms: [],
+      users: []
+    }
+  },
+  async mounted() {
+    let data = await this.$apiService.fetchRoomsWithUsers()
+    this.rooms = data.rooms;
+    this.users = data.users;
+  }
 }
 </script>
 
