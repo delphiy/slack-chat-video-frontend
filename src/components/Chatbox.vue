@@ -5,10 +5,6 @@
         ref="myQuillEditor"
         v-model="data"
         :options="editorOption"
-        @blur="onEditorBlur($event)"
-        @focus="onEditorFocus($event)"
-        @ready="onEditorReady($event)"
-        @change="onEditorChange($event)"
         style="height: 100px"
     >
 
@@ -51,6 +47,11 @@ export default {
           toolbar: "#toolbar",
         }
       },
+    }
+  },
+  methods: {
+    customButtonClick() {
+
     }
   }
 }

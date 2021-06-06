@@ -24,6 +24,17 @@ const googleAuthOptions = {
 import ApiService from './services/ApiService'
 Vue.prototype.$apiService = new ApiService();
 
+//Pusher
+import Echo from 'laravel-echo'
+window.Pusher = require('pusher-js')
+window.Echo = new Echo({
+  broadcaster: 'pusher',
+  key: '29fc1681f02b6e7734ca',
+  cluster: 'eu',
+  authEndpoint: 'http://localhost:8003/broadcasting/auth?api_token=' + localStorage.getItem('api_token'),
+  encrypted: true
+})
+
 Vue.use(GoogleAuth, googleAuthOptions)
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
